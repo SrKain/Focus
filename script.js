@@ -33,7 +33,7 @@ musicButton.addEventListener('change', () => {
 })
 
 focoButton.addEventListener('click', () => {
-    timeSec = 1500;
+    timeSec = 10;
     changeContext('foco');
     focoButton.classList.add('active');
 })
@@ -84,6 +84,13 @@ const count = () => {
         showTime();
         startPauseButtonImg.setAttribute('src', `/imagens/play_arrow.png`);
         alert('Tempo esgotado!');
+
+        const activeFocus = html.getAttribute('data-contexto') == 'foco'
+        if (activeFocus) {
+            const evento = new CustomEvent('focoFinalizado')
+            document.dispatchEvent(evento);
+        }
+
         return;
     }
     timeSec -= 1;
