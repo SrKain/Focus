@@ -33,7 +33,7 @@ musicButton.addEventListener('change', () => {
 })
 
 focoButton.addEventListener('click', () => {
-    timeSec = 10;
+    timeSec = 1500;
     changeContext('foco');
     focoButton.classList.add('active');
 })
